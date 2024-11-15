@@ -25,7 +25,7 @@ export class MainPageComponent {
   constructor( private productsService: ProductsService ) {}
 
   get products() {
-    return this.productsService.products;
+    return this.productsService.getProducts();
   }
 
 }

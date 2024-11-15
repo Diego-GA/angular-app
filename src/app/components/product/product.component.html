@@ -27,13 +27,25 @@
             <div
               class="flex align-items-center"
             >
-              <button class="custom-size-button" color="warn" mat-icon-button aria-label="remove-product">
+              <button 
+                (click)="changeAmountBy(product.id, -1)"
+                class="custom-size-button" 
+                color="warn" 
+                mat-icon-button 
+                aria-label="remove-product"
+              >
                 <mat-icon>remove</mat-icon>
               </button>
       
               {{ product.amount }}
       
-              <button class="custom-size-button" color="primary" mat-icon-button aria-label="add-product">
+              <button 
+                (click)="changeAmountBy(product.id, 1)"
+                class="custom-size-button" 
+                color="primary" 
+                mat-icon-button 
+                aria-label="add-product"
+              >
                 <mat-icon>add</mat-icon>
               </button>
             </div>
