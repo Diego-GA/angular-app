@@ -30,4 +30,8 @@ export class ProductsService {
     this.products[index].amount = newAmount
   }
 
+  public deleteProductById( id: number) {
+    this.products = this.products.filter( product => product.id !== id  );
+  }
+
 }

@@ -30,4 +30,8 @@ export class ProductComponent {
     this.productsService.sumAmountProductBy(productId, amount);
   }
 
+  deleteProductById( id: number ) {
+    this.productsService.deleteProductById(id);
+  }
+
 }

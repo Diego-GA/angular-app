@@ -59,7 +59,12 @@
             
             <!-- Delete product -->
             <div class="ml-3">
-              <button class="custom-size-button shadow-1" mat-icon-button aria-label="add-product">
+              <button 
+                (click)="deleteProductById(product.id)"
+                class="custom-size-button shadow-1" 
+                mat-icon-button 
+                aria-label="add-product"
+              >
                 <mat-icon>delete</mat-icon>
               </button>
             </div>
