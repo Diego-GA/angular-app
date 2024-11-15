@@ -53,7 +53,7 @@
             <!-- Precio -->
             <div class="ml-3">
               <p class="my-0 py-0">
-                {{ product.price | currency:'USD':'symbol' }}
+                {{ (product.price * product.amount) | currency:'USD':'symbol' }}
               </p>
             </div>
             
