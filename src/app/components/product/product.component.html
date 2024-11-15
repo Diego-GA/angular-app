@@ -1,0 +1,57 @@
+<mat-card class="border-none border-bottom-1 border-noround" appearance="outlined">
+  <mat-card-content class="">
+    <div class="grid">
+      <div class="col-2 flex align-items-center">
+        <img
+          class="border-round-xl"
+          mat-card-sm-image 
+          src="https://material.angular.io/assets/img/examples/shiba2.jpg" 
+        >
+      </div>
+
+      <div
+        class="col-4 flex justify-content-center flex-column pl-3"
+      >
+        <h3 class="text-black-alpha-70 text-lg font-medium my-0 line-height-2 text-600">
+          {{ product.name }}
+        </h3>
+        <p class="my-0 text-md text-black-alpha-50">{{ product.subInformation }}</p>
+      </div>
+
+      <div class="col-6 flex align-items-center justify-content-end">
+          <div
+            class="flex align-items-center"
+          >
+            <!-- Change amount -->
+            <div
+              class="flex align-items-center"
+            >
+              <button class="custom-size-button" color="warn" mat-icon-button aria-label="remove-product">
+                <mat-icon>remove</mat-icon>
+              </button>
+      
+              1
+      
+              <button class="custom-size-button" color="primary" mat-icon-button aria-label="add-product">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            
+            <!-- Precio -->
+            <div class="ml-3">
+              <p class="my-0 py-0">
+                {{ product.price | currency:'USD':'symbol' }}
+              </p>
+            </div>
+            
+            <!-- Delete product -->
+            <div class="ml-3">
+              <button class="custom-size-button shadow-1" mat-icon-button aria-label="add-product">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </mat-card-content>
+</mat-card>
