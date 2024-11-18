@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { ProductsService } from '../../services/products.service';
+import { WarningModalButtonComponent } from '../../components/warning-modal/warning-modal.component';
 
 @Component({
   selector: 'app-main-page',
@@ -15,6 +16,7 @@ import { ProductsService } from '../../services/products.service';
     MatIconModule,
     MatButtonModule,
     ProductListComponent,
+    WarningModalButtonComponent
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css',
