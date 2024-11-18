@@ -34,4 +34,7 @@ export class ProductsService {
     this.products = this.products.filter( product => product.id !== id  );
   }
 
+  public deleteAllProducts() {
+    this.products = [];
+  }
 }

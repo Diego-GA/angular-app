@@ -1,9 +1,23 @@
-<h2 mat-dialog-title>Delete file</h2>
-<mat-dialog-content>
-  Would you like to delete cat.jpeg?
+<div class="px-3">
+  <h2 
+    class="my-0 pb-1 px-0 font-medium text-lg border-bottom-solid border-bottom-1 border-blue-900" 
+    mat-dialog-title
+  >Delete All</h2>
+</div>
+
+
+<mat-dialog-content class="px-3 pt-2">
+  Are you sure you want to remove all the products from your cart? 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>No</button>
+  <button 
+    mat-button 
+    mat-dialog-close 
+    color="warn"
+    (click)="deleteAllProducts()"
+  >
+    Yes
+  </button>
 </mat-dialog-actions> 

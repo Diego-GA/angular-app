@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import { ProductsService } from '../../services/products.service';
 import {
   MatDialog,
   MatDialogActions,
@@ -38,9 +40,14 @@ export class WarningModalButtonComponent {
   selector: 'warning-modal',
   templateUrl: './warning-modal.component.html',
   standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent,MatDividerModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WarningModalDialogComponent {
+  constructor ( private productsService: ProductsService ) {}
   readonly dialogRef = inject(MatDialogRef<WarningModalDialogComponent>);
+
+  deleteAllProducts() {
+    this.productsService.deleteAllProducts();
+  }
 }
