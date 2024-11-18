@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { ProductsService } from '../../services/products.service';
 import { WarningModalButtonComponent } from '../../components/warning-modal/warning-modal.component';
+import { CalculatorComponent } from "../../components/calculator/calculator.component";
 
 @Component({
   selector: 'app-main-page',
@@ -16,8 +17,9 @@ import { WarningModalButtonComponent } from '../../components/warning-modal/warn
     MatIconModule,
     MatButtonModule,
     ProductListComponent,
-    WarningModalButtonComponent
-  ],
+    WarningModalButtonComponent,
+    CalculatorComponent
+],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,7 +29,7 @@ export class MainPageComponent {
   constructor( private productsService: ProductsService ) {}
 
   get products() {
-    return this.productsService.getProducts();
+    return this.productsService.getProducts;
   }
 
 }
