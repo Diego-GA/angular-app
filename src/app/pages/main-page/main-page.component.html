@@ -17,13 +17,19 @@
         </mat-card-header>
 
         <mat-card-content>
-          <app-product-list
-            [products]="products"
-          ></app-product-list>
 
-          <app-calculator
-            [detailPay]="detailPay"
-          ></app-calculator>
+            <app-product-list
+              [products]="products"
+            ></app-product-list>
+  
+            <app-calculator
+              *ngIf="products.length"
+              [detailPay]="detailPay"
+            ></app-calculator>
+
+          <div *ngIf="products.length === 0"> 
+            <p class="font-bold text-center text-lg my-5">No items in the cart.</p>
+          </div>
         </mat-card-content>
     </mat-card>
 </div>
