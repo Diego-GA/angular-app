@@ -11,6 +11,7 @@
             </mat-card-title>
 
             <warning-modal-button
+              *ngIf="products.length > 0"
               (onAllDelete)="removeAllProducts()"
             ></warning-modal-button>
         </mat-card-header>

@@ -49,7 +49,7 @@ export class ProductsService {
     const index = this.products.findIndex( product => product.id === productId )
     const newAmount = this.products[index].amount + amount;
     
-    if( newAmount < 0  ) return 
+    if( newAmount < 1  ) return 
 
     this.products[index].amount = newAmount
     this.detailPay = this.calculateDetailPay()
