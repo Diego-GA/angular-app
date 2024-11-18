@@ -7,6 +7,7 @@ import { ProductListComponent } from '../../components/product-list/product-list
 import { ProductsService } from '../../services/products.service';
 import { WarningModalButtonComponent } from '../../components/warning-modal/warning-modal.component';
 import { CalculatorComponent } from "../../components/calculator/calculator.component";
+import { DetailPay } from '../../interfaces/detail-pay.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -30,6 +31,10 @@ export class MainPageComponent {
 
   get products() {
     return this.productsService.getProducts;
+  }
+
+  get detailPay(): DetailPay {
+    return this.productsService.detailPay
   }
 
 }

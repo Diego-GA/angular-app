@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { DetailPay } from '../../interfaces/detail-pay.interface';
 
 @Component({
   selector: 'app-calculator',
@@ -14,10 +15,11 @@ import { ProductsService } from '../../services/products.service';
 })
 export class CalculatorComponent {
 
-  constructor( private productsService: ProductsService) {}
-
-  get subTotal() {
-    return this.productsService.getSubTotal
+  @Input()
+  public detailPay: DetailPay = {
+    subtotal: 0,
+    shippingFees: 0,
+    taxes: 0,
+    total: 0
   }
-
 }
