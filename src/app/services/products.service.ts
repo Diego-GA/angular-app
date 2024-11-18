@@ -31,7 +31,8 @@ export class ProductsService {
   calculateDetailPay(): DetailPay {
     const subtotal = this.products.reduce((acc, product) => acc + product.price * product.amount, 0);
 
-    const shippingFees = 20.00; 
+    let shippingFees = 20.00; 
+    if ( this.products.length === 0 ) shippingFees = 0
     const taxes = subtotal * 0.16; 
 
     const total = subtotal + shippingFees + taxes;
@@ -59,7 +60,8 @@ export class ProductsService {
     this.detailPay = this.calculateDetailPay()
   }
 
-  public async deleteAllProducts() {
-    return this.products = [];
+  public deleteAllProducts() {
+    this.products = [];
+    this.detailPay = this.calculateDetailPay()
   }
 }

@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { ProductsService } from '../../services/products.service';
-import { WarningModalButtonComponent } from '../../components/warning-modal/warning-modal.component';
+import { WarningModalButtonComponent, WarningModalDialogComponent } from '../../components/warning-modal/warning-modal.component';
 import { CalculatorComponent } from "../../components/calculator/calculator.component";
 import { DetailPay } from '../../interfaces/detail-pay.interface';
 
@@ -19,7 +19,8 @@ import { DetailPay } from '../../interfaces/detail-pay.interface';
     MatButtonModule,
     ProductListComponent,
     WarningModalButtonComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    WarningModalDialogComponent
 ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css',
@@ -35,6 +36,10 @@ export class MainPageComponent {
 
   get detailPay(): DetailPay {
     return this.productsService.detailPay
+  }
+
+  removeAllProducts() {
+    this.productsService.deleteAllProducts()
   }
 
 }

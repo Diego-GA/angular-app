@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Output, EventEmitter } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { ProductsService } from '../../services/products.service';
@@ -11,6 +11,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'warning-modal-button',
@@ -25,14 +26,20 @@ import {
 })
 export class WarningModalButtonComponent { 
   readonly dialog = inject(MatDialog);
+  @Output() onAllDelete: EventEmitter<string> = new EventEmitter();
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(WarningModalDialogComponent, {
+    const dialogRef = this.dialog.open(WarningModalDialogComponent, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
+ 
+    dialogRef.componentInstance.onAllDelete.subscribe(() => {
+      this.onAllDelete.emit();
+    });
   }
+
 
 }
 
@@ -47,7 +54,9 @@ export class WarningModalDialogComponent {
   constructor ( private productsService: ProductsService ) {}
   readonly dialogRef = inject(MatDialogRef<WarningModalDialogComponent>);
 
+  @Output() onAllDelete: EventEmitter<string> = new EventEmitter();
+
   deleteAllProducts() {
-    this.productsService.deleteAllProducts();
+    this.onAllDelete.emit();
   }
 }

@@ -10,7 +10,9 @@
                 </div>
             </mat-card-title>
 
-            <warning-modal-button></warning-modal-button>
+            <warning-modal-button
+              (onAllDelete)="removeAllProducts()"
+            ></warning-modal-button>
         </mat-card-header>
 
         <mat-card-content>
