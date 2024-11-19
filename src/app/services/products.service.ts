@@ -12,7 +12,7 @@ export class ProductsService {
   constructor() {}
 
   private http = inject(HttpClient)
-  private apiUrl = 'http://localhost:9000/api/products'
+  private apiUrl = 'http://borendain.com:9000/api/products'
 
   private products: Product[] = []
 
