@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
 import { DetailPay } from '../interfaces/detail-pay.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +11,10 @@ export class ProductsService {
 
   constructor() {}
 
-  private products: Product[] = [
-    { id: 1, name: 'Producto 1', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-    { id: 2, name: 'Producto 2', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-    { id: 3, name: 'Producto 3', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-    { id: 4, name: 'Producto 4', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-    { id: 5, name: 'Producto 5', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-    { id: 6, name: 'Producto 6', subInformation: 'información', price: 100.00, imgUrl: '', stock: 10, amount: 1 },
-  ]
+  private http = inject(HttpClient)
+  private apiUrl = 'http://localhost:9000/api/products'
+
+  private products: Product[] = []
 
   public detailPay: DetailPay = this.calculateDetailPay()
 
@@ -63,5 +61,21 @@ export class ProductsService {
   public deleteAllProducts() {
     this.products = [];
     this.detailPay = this.calculateDetailPay()
+  }
+
+  getProductsFromBackend(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  public loadProducts(): void {
+    this.getProductsFromBackend().subscribe(
+      (products: Product[]) => {
+        this.products = products;
+        this.detailPay = this.calculateDetailPay();
+      },
+      error => {
+        console.error('Error al cargar los productos:', error);
+      }
+    );
   }
 }
