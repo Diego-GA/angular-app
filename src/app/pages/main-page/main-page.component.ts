@@ -41,7 +41,8 @@ export class MainPageComponent implements OnInit {
     return this.productsService.detailPay
   }
 
-  showProducts() {
+  reloadDefaultProducts() {
+    this.productsService.loadProducts()
     console.log(this.productsService.getProducts)
   }
 

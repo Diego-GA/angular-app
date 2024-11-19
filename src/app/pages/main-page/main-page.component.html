@@ -21,7 +21,7 @@
             <app-product-list
               [products]="products"
             ></app-product-list>
-  
+
             <app-calculator
               *ngIf="products.length"
               [detailPay]="detailPay"
@@ -31,6 +31,10 @@
             <p class="font-bold text-center text-lg my-5">No items in the cart.</p>
           </div>
         </mat-card-content>
+
+        <button mat-raised-button (click)="reloadDefaultProducts()">
+          RESET PRODUCTS {{ products.length ? '':'- CLICK ME!' }}
+        </button>
     </mat-card>
 </div>
 
