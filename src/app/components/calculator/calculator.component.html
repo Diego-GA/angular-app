@@ -5,7 +5,7 @@
       Subtotal
     </p>
 
-    <p class="my-0">{{ detailPay.subtotal }}</p>
+    <p class="my-0">{{ detailPay.subtotal | currency:'USD':'symbol' }}</p>
   </div>
   
   <div class="col-8 w-full px-5 flex justify-content-between text-lg">
@@ -14,7 +14,7 @@
       Shipping fees
     </p>
 
-    <p class="my-0">{{ detailPay.shippingFees }}</p>
+    <p class="my-0">{{ detailPay.shippingFees | currency:'USD':'symbol' }}</p>
   </div>
 
   <div class="col-8 w-full px-5 flex justify-content-between text-lg">
@@ -23,7 +23,7 @@
       Taxes
     </p>
 
-    <p class="my-0">{{ detailPay.taxes }}</p>
+    <p class="my-0">{{ detailPay.taxes | currency:'USD':'symbol' }}</p>
   </div>
 
   <div class="col-8 w-full px-5 flex justify-content-between text-lg font-bold">
@@ -31,7 +31,7 @@
       Total (including tax)
     </p>
 
-    <p class="my-0">{{ detailPay.total }}</p>
+    <p class="my-0">{{ detailPay.total | currency:'USD':'symbol' }}</p>
   </div>
 
 </div>
